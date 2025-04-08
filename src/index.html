@@ -5,18 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0bacd4c837.js" crossorigin="anonymous"></script>
     <title>My-Portfolio</title>
 </head>
 
 <body>
 
     <div class="header">
+
+        <div class="icon">
+            <img src="#" alt="logo">
+        </div>
+
         <div class="nav-bar">
             <ul class="nav-links">
-                <li><a href="">Home</a></li>
-                <li><a href="">About Me</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Contacts</a></li>
+                <li><a href=""><span class="head-link">Home</span></a></li>
+                <li><a href=""><span class="head-link">About Me</span></a></li>
+                <li><a href=""><span class="head-link">Projects</span></a></li>
+                <li><a href=""><span class="head-link">Contacts</span></a></li>
             </ul>
         </div>
     </div>
@@ -28,7 +34,9 @@
             <p>Coding is my passion, and logic is my language.</p>
 
             <!--TODO: ADD PROFILE PHOTO-->
-            <img src="#" alt="My Photo" class="profile-pic">
+            <div class="pic-back">
+                <img src="/src/images/profile.png" alt="My Photo" class="profile-pic">
+            </div>
 
             <div class="cta-buttons">
                 <a href="#projects" class="btn">View My Work</a>
@@ -37,8 +45,15 @@
 
             <!--TODO: ADD SOCIALS -->
             <div class="social-links">
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">LinkedIn</a>
+                <div class="so-btn github">
+                    <i class="fa-brands fa-github"></i>
+                    <a href="https://github.com/Mayur589" target="_blank">GitHub</a>
+                </div>
+
+                <div class="so-btn linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/mayur-patel-09142428b/" target="_blank">LinkedIn</a>
+                </div>
             </div>
         </div>
 
