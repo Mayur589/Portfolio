@@ -1,5 +1,5 @@
 /* =============================================================
-   SPARKLING AMETHYST PURPLE PARTICLES (TWINKLE & GLOW)
+   SUBTLE MONOCHROME STARLIGHT PARTICLES (MINIMALIST TWINKLE)
    ============================================================= */
 
 interface Particle {
@@ -25,7 +25,7 @@ export class SparklingParticles {
   private canvas: HTMLCanvasElement | null = null;
   private ctx: CanvasRenderingContext2D | null = null;
   private particles: Particle[] = [];
-  private numParticles: number = 95;
+  private numParticles: number = 75; // Subtle, elegant stardust
   private mouseX: number = 0;
   private mouseY: number = 0;
   private targetMouseX: number = 0;
@@ -33,12 +33,12 @@ export class SparklingParticles {
   private width: number = 0;
   private height: number = 0;
 
+  // Clean Monochrome & Silver Palette
   private palette: PaletteColor[] = [
-    { color: '160, 108, 213', glow: 'rgba(160, 108, 213, 0.6)' }, // Vibrant Amethyst #a06cd5
-    { color: '192, 132, 252', glow: 'rgba(192, 132, 252, 0.55)' }, // Glowing Violet #c084fc
-    { color: '226, 207, 234', glow: 'rgba(226, 207, 234, 0.5)' },  // Lavender Starlight #e2cfea
-    { color: '129, 140, 248', glow: 'rgba(129, 140, 248, 0.55)' }, // Electric Iris #818cf8
-    { color: '98, 71, 170', glow: 'rgba(98, 71, 170, 0.45)' }     // Deep Amethyst #6247aa
+    { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.45)' }, // Pure Starlight White
+    { color: '244, 244, 245', glow: 'rgba(244, 244, 245, 0.35)' }, // Platinum Silver
+    { color: '228, 228, 231', glow: 'rgba(228, 228, 231, 0.25)' }, // Zinc
+    { color: '161, 161, 170', glow: 'rgba(161, 161, 170, 0.2)' }   // Subtle Charcoal Stardust
   ];
 
   constructor(canvasId: string) {
@@ -56,10 +56,10 @@ export class SparklingParticles {
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
-    // Subtle mouse parallax
+    // Subtle, gentle mouse parallax
     window.addEventListener('mousemove', (e: MouseEvent) => {
-      this.targetMouseX = (e.clientX / window.innerWidth - 0.5) * 18;
-      this.targetMouseY = (e.clientY / window.innerHeight - 0.5) * 18;
+      this.targetMouseX = (e.clientX / window.innerWidth - 0.5) * 12;
+      this.targetMouseY = (e.clientY / window.innerHeight - 0.5) * 12;
     });
 
     this.createParticles();
@@ -84,13 +84,13 @@ export class SparklingParticles {
         y: Math.random() * this.height,
         baseX: Math.random() * this.width,
         baseY: Math.random() * this.height,
-        size: 1.1 + Math.random() * 2.4,
-        isSpark: Math.random() > 0.5,
+        size: 0.9 + Math.random() * 1.8,
+        isSpark: Math.random() > 0.65, // 35% are delicate 4-point twinkling stars
         color: pColor.color,
         glow: pColor.glow,
         phase: Math.random() * Math.PI * 2,
-        twinkleSpeed: 0.9 + Math.random() * 1.8,
-        baseAlpha: 0.2 + Math.random() * 0.4
+        twinkleSpeed: 0.6 + Math.random() * 1.2,
+        baseAlpha: 0.15 + Math.random() * 0.35
       });
     }
   }
@@ -126,8 +126,8 @@ export class SparklingParticles {
     ctx.lineTo(cx, cy - outerRadius);
     ctx.closePath();
     ctx.fillStyle = `rgba(${color}, ${alpha})`;
-    ctx.shadowBlur = 10;
-    ctx.shadowColor = `rgba(${color}, ${alpha * 0.9})`;
+    ctx.shadowBlur = 6;
+    ctx.shadowColor = `rgba(${color}, ${alpha * 0.6})`;
     ctx.fill();
     ctx.shadowBlur = 0;
   }
@@ -138,37 +138,37 @@ export class SparklingParticles {
     const render = () => {
       requestAnimationFrame(render);
       if (!this.ctx) return;
-      time += 0.016;
+      time += 0.014;
 
       this.ctx.clearRect(0, 0, this.width, this.height);
 
-      // Smooth mouse parallax
-      this.mouseX += (this.targetMouseX - this.mouseX) * 0.05;
-      this.mouseY += (this.targetMouseY - this.mouseY) * 0.05;
+      // Subtle mouse parallax
+      this.mouseX += (this.targetMouseX - this.mouseX) * 0.04;
+      this.mouseY += (this.targetMouseY - this.mouseY) * 0.04;
 
       const ctx = this.ctx;
 
       for (let i = 0; i < this.particles.length; i++) {
         const p = this.particles[i];
 
-        // Twinkle calculation
+        // Smooth twinkle calculation
         const sparkle = Math.sin(time * p.twinkleSpeed + p.phase);
-        const alpha = Math.max(0.08, Math.min(1.0, p.baseAlpha + sparkle * 0.5));
-        const currentSize = p.size * (0.85 + sparkle * 0.3);
+        const alpha = Math.max(0.05, Math.min(0.85, p.baseAlpha + sparkle * 0.35));
+        const currentSize = p.size * (0.9 + sparkle * 0.2);
 
-        const renderX = p.baseX + this.mouseX * (p.size * 0.25);
-        const renderY = p.baseY + this.mouseY * (p.size * 0.25);
+        const renderX = p.baseX + this.mouseX * (p.size * 0.2);
+        const renderY = p.baseY + this.mouseY * (p.size * 0.2);
 
         if (p.isSpark && alpha > 0.35) {
-          // 4-point twinkling purple star
-          this.drawSparkleStar(ctx, renderX, renderY, 4, currentSize * 2.6, currentSize * 0.6, alpha, p.color);
+          // Delicate 4-point twinkling white star
+          this.drawSparkleStar(ctx, renderX, renderY, 4, currentSize * 2.2, currentSize * 0.5, alpha, p.color);
         } else {
-          // Glowing purple particle
+          // Subtle stardust dot
           ctx.beginPath();
           ctx.arc(renderX, renderY, currentSize, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${p.color}, ${alpha})`;
-          ctx.shadowBlur = alpha > 0.4 ? 10 : 0;
-          ctx.shadowColor = `rgba(${p.color}, ${alpha * 0.85})`;
+          ctx.shadowBlur = alpha > 0.4 ? 6 : 0;
+          ctx.shadowColor = `rgba(${p.color}, ${alpha * 0.5})`;
           ctx.fill();
           ctx.shadowBlur = 0;
         }

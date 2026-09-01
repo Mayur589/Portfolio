@@ -1,43 +1,46 @@
 /* =============================================================
-   DESIGN TOKENS & AMETHYST PURPLE PALETTE
+   MODERN MONOCHROME DESIGN TOKENS (BLACK & WHITE MINIMALIST)
    ============================================================= */
 :root {
-  --ink: #040207;
-  --ink-card: rgba(13, 9, 24, 0.72);
-  --ink-card-hover: rgba(22, 14, 40, 0.90);
-  --bone: #e2cfea;
-  --bone-dim: #b8a6c8;
-  --muted: rgba(226, 207, 234, 0.50);
-  --line: rgba(160, 108, 213, 0.18);
-  --line-soft: rgba(160, 108, 213, 0.08);
-  --line-highlight: rgba(192, 132, 252, 0.35);
+  /* Surface & Background Palette */
+  --ink: #09090b;
+  --ink-card: rgba(18, 18, 21, 0.72);
+  --ink-card-hover: rgba(26, 26, 30, 0.92);
+  
+  /* Text & Typography Palette */
+  --bone: #ffffff;
+  --bone-dim: #e4e4e7;
+  --muted: #a1a1aa;
+  --text-dim: #71717a;
+  
+  /* Precision Borders */
+  --line: rgba(255, 255, 255, 0.10);
+  --line-soft: rgba(255, 255, 255, 0.05);
+  --line-highlight: rgba(255, 255, 255, 0.32);
 
-  /* Amethyst & Ethereal Purple Accents */
-  --purple-glow: #a06cd5;
-  --purple-glow-soft: rgba(160, 108, 213, 0.45);
-  --purple-light: #e2cfea;
-  --purple-deep: #6247aa;
-  --purple-vibrant: #c084fc;
-  --purple-electric: #818cf8;
-  --purple-navy: #102b3f;
-  --status-green: #4ade80;
+  /* Monochrome & Silver Accents */
+  --accent-white: #ffffff;
+  --accent-silver: #d4d4d8;
+  --accent-glow: rgba(255, 255, 255, 0.18);
+  --accent-glow-soft: rgba(255, 255, 255, 0.08);
+  --status-green: #22c55e;
 
   /* Typography */
-  --font-display: 'Cinzel', 'Cormorant Garamond', serif;
-  --font-ui: 'Space Grotesk', sans-serif;
-  --font-body: 'Jost', sans-serif;
-  --font-pixel: 'VT323', monospace;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-pixel: 'JetBrains Mono', monospace;
 
   /* Layout & Spacing */
   --pad: clamp(20px, 4vw, 64px);
   --nav-h: 80px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
 
-  /* Easing curves */
-  --ease: cubic-bezier(.22, .61, .36, 1);
+  /* Subtle Easing Curves */
+  --ease: cubic-bezier(.16, 1, .3, 1);
   --ease-out: cubic-bezier(.16, 1, .3, 1);
   --ease-io: cubic-bezier(.65, 0, .35, 1);
 }

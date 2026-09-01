@@ -29,21 +29,21 @@ const {
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#040207" />
+  <meta name="theme-color" content="#09090b" />
 
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@300;400;500;600;700&family=VT323&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 </head>
 <body>
-  <!-- Ambient & Sparkling 2D Canvas Background -->
+  <!-- Ambient & Subtle Starlight Canvas Background -->
   <BackgroundCanvas />
 
-  <!-- Interactive Dual-Ring Magnetic Cursor & Toast Notification -->
+  <!-- Minimalist Dual-Ring Magnetic Cursor & Toast Notification -->
   <CustomCursor />
 
   <!-- Floating Glass Capsule Navbar -->
@@ -61,7 +61,7 @@ const {
     import { SparklingParticles } from '../scripts/particles';
     import { initUI } from '../scripts/ui';
 
-    // Initialize cosmic particles background & UI interaction listeners
+    // Initialize starlight particles & UI interaction listeners
     if (typeof window !== 'undefined') {
       new SparklingParticles('particles-canvas');
       initUI();

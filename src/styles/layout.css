@@ -1,5 +1,5 @@
 /* =============================================================
-   LAYOUT, FLOATING NAVBAR, HERO & FOOTER
+   LAYOUT, FLOATING NAVBAR, HERO & FOOTER (MODERN MINIMALIST)
    ============================================================= */
 
 /* ─── Floating Glass Capsule Navbar ─────────────────────────── */
@@ -22,22 +22,22 @@
   justify-content: space-between;
   gap: clamp(16px, 3vw, 36px);
   padding: 8px 12px 8px 16px;
-  background: rgba(13, 8, 24, 0.75);
+  background: rgba(16, 16, 20, 0.75);
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
   border: 1px solid var(--line);
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  transition: border-color 0.4s, background 0.4s, box-shadow 0.4s;
-  max-width: 920px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  max-width: 900px;
   width: 100%;
 }
 
 .nav:hover,
 .nav.stuck {
   border-color: var(--line-highlight);
-  background: rgba(18, 12, 34, 0.88);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(160, 108, 213, 0.15);
+  background: rgba(22, 22, 26, 0.9);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .brand {
@@ -50,15 +50,15 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid var(--purple-glow);
-  box-shadow: 0 0 10px var(--purple-glow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   display: grid;
   place-items: center;
   font-family: var(--font-ui);
   font-weight: 700;
-  font-size: 13px;
-  color: var(--purple-light);
-  background: rgba(160, 108, 213, 0.2);
+  font-size: 12.5px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .brand-tx {
@@ -71,8 +71,8 @@
   font-family: var(--font-ui);
   font-size: 12.5px;
   font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--bone);
+  letter-spacing: 0.14em;
+  color: #ffffff;
 }
 
 .nav-links {
@@ -86,11 +86,11 @@
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--bone-dim);
+  color: var(--muted);
   padding: 6px 4px;
-  transition: color 0.3s;
+  transition: color 0.25s;
   position: relative;
 }
 
@@ -106,8 +106,8 @@
   left: 4px;
   right: 4px;
   height: 2px;
-  background: var(--purple-vibrant);
-  box-shadow: 0 0 8px var(--purple-glow);
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   border-radius: 1px;
 }
 
@@ -115,22 +115,22 @@
   font-family: var(--font-ui);
   font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: rgba(160, 108, 213, 0.25);
-  border: 1px solid var(--purple-glow);
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #ffffff;
   padding: 7px 16px;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-out), box-shadow 0.3s;
+  transition: background 0.25s, color 0.25s, transform 0.25s var(--ease-out), box-shadow 0.25s;
 }
 
 .nav-cta:hover {
-  background: var(--purple-glow);
-  box-shadow: 0 0 16px var(--purple-glow-soft);
+  background: #e4e4e7;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
   transform: translateY(-1px);
 }
 
@@ -162,19 +162,19 @@
   display: block;
   width: 14px;
   height: 1px;
-  background: rgba(226, 207, 234, 0.25);
-  transition: width 0.4s var(--ease-out), background 0.4s;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.35s var(--ease-out), background 0.35s;
 }
 
 .rail button.on i {
   width: 24px;
-  background: var(--purple-vibrant);
-  box-shadow: 0 0 8px var(--purple-glow);
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 .rail button:hover i {
   width: 24px;
-  background: var(--bone);
+  background: #ffffff;
 }
 
 .side-glyph {
@@ -184,9 +184,9 @@
   transform: translateY(-50%);
   writing-mode: vertical-rl;
   font-family: var(--font-pixel);
-  font-size: 16px;
-  letter-spacing: 0.4em;
-  color: rgba(192, 132, 252, 0.35);
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.25);
   pointer-events: none;
   z-index: 2;
 }
@@ -198,7 +198,7 @@
 /* ─── Chapter Sections ──────────────────────────────────────── */
 .sec {
   position: relative;
-  padding: clamp(80px, 12vh, 150px) var(--pad);
+  padding: clamp(72px, 10vh, 130px) var(--pad);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -211,7 +211,7 @@
   inset: -15% -4%;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(110% 65% at 30% 50%, rgba(4, 2, 7, 0.92), rgba(6, 3, 11, 0.72) 46%, rgba(8, 4, 14, 0.18) 75%, transparent);
+  background: radial-gradient(110% 65% at 30% 50%, rgba(9, 9, 11, 0.95), rgba(12, 12, 15, 0.75) 46%, rgba(16, 16, 20, 0.2) 75%, transparent);
   -webkit-mask-image: linear-gradient(transparent, #000 35%);
   mask-image: linear-gradient(transparent, #000 35%);
 }
@@ -220,20 +220,20 @@
   display: flex;
   align-items: baseline;
   gap: 16px;
-  margin-bottom: clamp(28px, 4vh, 48px);
+  margin-bottom: clamp(24px, 3.5vh, 40px);
 }
 
 .sec-head .k {
   font-family: var(--font-ui);
   font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
 .sec-head .k b {
-  color: var(--purple-vibrant);
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -243,7 +243,7 @@
   background: var(--line-soft);
 }
 
-/* ─── Modern Hero Section ───────────────────────────────────── */
+/* ─── Modern Minimalist Hero Section ────────────────────────── */
 .hero {
   min-height: 100svh;
   padding: 0 var(--pad);
@@ -254,8 +254,8 @@
 }
 
 .hero-top {
-  padding-top: clamp(110px, 16vh, 160px);
-  max-width: min(760px, 80vw);
+  padding-top: clamp(110px, 15vh, 150px);
+  max-width: min(780px, 85vw);
   position: relative;
   z-index: 2;
 }
@@ -265,15 +265,15 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(160, 108, 213, 0.12);
-  border: 1px solid rgba(160, 108, 213, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  color: #e2cfea;
+  letter-spacing: 0.06em;
+  color: var(--bone-dim);
   margin-bottom: 20px;
 }
 
@@ -283,28 +283,30 @@
   border-radius: 50%;
   background: var(--status-green);
   box-shadow: 0 0 10px var(--status-green);
-  animation: pulse-dot 2s infinite;
+  animation: pulse-dot 2.2s infinite;
 }
 
 @keyframes pulse-dot {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 14px var(--status-green); }
-  100% { transform: scale(0.95); opacity: 0.8; }
+  0% { transform: scale(0.95); opacity: 0.85; }
+  50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 12px var(--status-green); }
+  100% { transform: scale(0.95); opacity: 0.85; }
 }
 
 .hero h1 {
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 
 .hero h1 em {
   font-style: normal;
-  color: var(--purple-vibrant);
-  text-shadow: 0 0 25px var(--purple-glow-soft);
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .hero-sub {
-  max-width: 580px;
-  margin-bottom: 28px;
+  max-width: 600px;
+  margin-bottom: 26px;
+  font-size: 15.5px;
+  color: var(--muted);
 }
 
 /* Hero CTA Buttons */
@@ -313,57 +315,57 @@
   flex-wrap: wrap;
   gap: 14px;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .btn-primary {
   font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: #ffffff;
-  background: linear-gradient(135deg, #a06cd5, #6247aa);
-  border: 1px solid rgba(226, 207, 234, 0.3);
-  padding: 12px 24px;
+  letter-spacing: 0.04em;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 11px 22px;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 20px rgba(160, 108, 213, 0.35);
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s, background 0.25s;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(160, 108, 213, 0.55);
+  background: #f4f4f5;
+  box-shadow: 0 6px 22px rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary {
   font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--bone);
-  background: rgba(14, 9, 26, 0.6);
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
-  padding: 12px 22px;
+  padding: 11px 20px;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
   gap: 6px;
   backdrop-filter: blur(12px);
-  transition: border-color 0.3s, background 0.3s, color 0.3s, transform 0.3s var(--ease-out);
+  transition: border-color 0.25s, background 0.25s, color 0.25s, transform 0.25s var(--ease-out);
 }
 
 .btn-secondary:hover {
-  border-color: var(--purple-vibrant);
-  background: rgba(26, 16, 44, 0.8);
-  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
 .hero-foot {
-  padding-bottom: clamp(24px, 4vh, 48px);
+  padding-bottom: clamp(24px, 4vh, 44px);
   position: relative;
   z-index: 2;
 }
@@ -372,16 +374,16 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   font-family: var(--font-ui);
   font-size: 10px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-dim);
 }
 
 .hero-cue .track {
-  width: 50px;
+  width: 44px;
   height: 1px;
   background: var(--line);
   position: relative;
@@ -391,8 +393,8 @@
 .hero-cue .track i {
   position: absolute;
   inset: 0;
-  background: var(--purple-vibrant);
-  animation: cue 2.8s var(--ease-io) infinite;
+  background: #ffffff;
+  animation: cue 2.6s var(--ease-io) infinite;
 }
 
 @keyframes cue {
@@ -408,38 +410,38 @@
 /* ─── Contact Section ───────────────────────────────────────── */
 .contact-wrap {
   text-align: center;
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
 .contact-h2 {
-  font-size: clamp(38px, 6.5vw, 84px);
-  margin: 16px 0 20px;
+  font-size: clamp(36px, 6vw, 76px);
+  margin: 16px 0 18px;
 }
 
 .contact-h2 em {
   font-style: normal;
-  color: var(--purple-vibrant);
-  text-shadow: 0 0 30px var(--purple-glow-soft);
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .contact-email {
   display: inline-block;
   font-family: var(--font-ui);
-  font-size: clamp(16px, 2.2vw, 24px);
-  letter-spacing: 0.08em;
-  color: var(--bone);
-  border-bottom: 1px solid var(--purple-glow);
+  font-size: clamp(16px, 2.2vw, 22px);
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding-bottom: 6px;
-  margin: 20px 0 32px;
+  margin: 18px 0 28px;
   cursor: pointer;
-  transition: color 0.3s, border-color 0.3s, text-shadow 0.3s;
+  transition: color 0.25s, border-color 0.25s, text-shadow 0.25s;
 }
 
 .contact-email:hover {
-  color: var(--purple-vibrant);
-  border-color: var(--purple-light);
-  text-shadow: 0 0 16px var(--purple-glow-soft);
+  color: #ffffff;
+  border-color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
 .social-links {
@@ -452,35 +454,35 @@
 .social-links a {
   font-family: var(--font-ui);
   font-size: 12px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
-  transition: color 0.3s;
+  transition: color 0.25s;
 }
 
 .social-links a:hover {
-  color: var(--purple-vibrant);
+  color: #ffffff;
 }
 
 /* ─── Footer ────────────────────────────────────────────────── */
 footer {
-  padding: clamp(24px, 4vh, 36px) var(--pad);
+  padding: clamp(20px, 3.5vh, 32px) var(--pad);
   border-top: 1px solid var(--line-soft);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-ui);
   font-size: 11px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-dim);
   flex-wrap: wrap;
   gap: 12px;
-  background: rgba(8, 4, 14, 0.94);
+  background: rgba(10, 10, 12, 0.95);
 }
 
 footer .runes {
   font-family: var(--font-pixel);
-  font-size: 16px;
-  color: var(--purple-vibrant);
+  font-size: 12px;
+  color: var(--muted);
 }
