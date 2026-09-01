@@ -1,0 +1,25 @@
+---
+import { skillCategories } from '../data/skills';
+---
+
+<section class="sec" id="skills" data-chapter="3">
+  <div class="sec-head" data-rv>
+    <span class="k"><b>03</b> — Technical Skills</span>
+    <span class="rule"></span>
+  </div>
+
+  <div class="skills-vertical">
+    {skillCategories.map((cat) => (
+      <div class="skill-row" data-rv>
+        <div class="skill-header">
+          <span class="skill-category">{cat.title}</span>
+        </div>
+        <div class="skill-pills">
+          {cat.skills.map((skill) => (
+            <span class="skill-pill">{skill}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

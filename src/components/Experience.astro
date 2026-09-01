@@ -1,0 +1,29 @@
+---
+import { experiences } from '../data/experience';
+---
+
+<section class="sec" id="experience" data-chapter="1">
+  <div class="sec-head" data-rv>
+    <span class="k"><b>01</b> — Work Experience</span>
+    <span class="rule"></span>
+  </div>
+
+  <div class="exp-grid">
+    <div class="exp-list">
+      {experiences.map((exp) => (
+        <div class="exp-card" data-rv>
+          <div class="exp-header">
+            <h3 class="exp-role">{exp.role}</h3>
+            <span class="exp-period">{exp.period}</span>
+          </div>
+          <p class="exp-company">{exp.company} · {exp.location}</p>
+          <ul class="exp-bullets">
+            {exp.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

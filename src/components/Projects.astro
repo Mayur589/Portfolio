@@ -1,0 +1,62 @@
+---
+import { projects, projectFilters } from '../data/projects';
+---
+
+<section class="sec" id="projects" data-chapter="2">
+  <div class="sec-head" data-rv>
+    <span class="k"><b>02</b> — Featured Projects</span>
+    <span class="rule"></span>
+  </div>
+
+  <!-- UI Kit Interactive Category Filter Tabs -->
+  <div class="filter-tabs" data-rv>
+    {projectFilters.map((filter, idx) => (
+      <button 
+        class={`filter-tab ${idx === 0 ? 'active' : ''}`} 
+        data-filter={filter.value}
+        aria-label={`Filter by ${filter.label}`}
+      >
+        {filter.label}
+      </button>
+    ))}
+  </div>
+
+  <div class="cards-grid">
+    {projects.map((project) => (
+      <article class="card" data-category={project.category} data-rv>
+        <div>
+          <div class="card-top">
+            <span class="card-num">{project.num} / {project.badge}</span>
+            <span class="card-biome">{project.subtitle}</span>
+          </div>
+          <h3 class="card-title">{project.title}</h3>
+          <p class="card-desc">
+            {project.description}
+          </p>
+          <ul class="card-bullets">
+            {project.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="card-foot">
+          <div class="card-tags">
+            {project.tags.map((tag) => (
+              <span class="card-tag">{tag}</span>
+            ))}
+          </div>
+          <a 
+            href={project.githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="card-link" 
+            title="View Source on GitHub"
+            aria-label={`View source code for ${project.title}`}
+          >
+            ↗
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

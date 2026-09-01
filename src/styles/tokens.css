@@ -1,0 +1,43 @@
+/* =============================================================
+   DESIGN TOKENS & AMETHYST PURPLE PALETTE
+   ============================================================= */
+:root {
+  --ink: #040207;
+  --ink-card: rgba(13, 9, 24, 0.72);
+  --ink-card-hover: rgba(22, 14, 40, 0.90);
+  --bone: #e2cfea;
+  --bone-dim: #b8a6c8;
+  --muted: rgba(226, 207, 234, 0.50);
+  --line: rgba(160, 108, 213, 0.18);
+  --line-soft: rgba(160, 108, 213, 0.08);
+  --line-highlight: rgba(192, 132, 252, 0.35);
+
+  /* Amethyst & Ethereal Purple Accents */
+  --purple-glow: #a06cd5;
+  --purple-glow-soft: rgba(160, 108, 213, 0.45);
+  --purple-light: #e2cfea;
+  --purple-deep: #6247aa;
+  --purple-vibrant: #c084fc;
+  --purple-electric: #818cf8;
+  --purple-navy: #102b3f;
+  --status-green: #4ade80;
+
+  /* Typography */
+  --font-display: 'Cinzel', 'Cormorant Garamond', serif;
+  --font-ui: 'Space Grotesk', sans-serif;
+  --font-body: 'Jost', sans-serif;
+  --font-pixel: 'VT323', monospace;
+
+  /* Layout & Spacing */
+  --pad: clamp(20px, 4vw, 64px);
+  --nav-h: 80px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Easing curves */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --ease-io: cubic-bezier(.65, 0, .35, 1);
+}

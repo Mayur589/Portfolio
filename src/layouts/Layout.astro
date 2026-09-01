@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import BackgroundCanvas from '../components/BackgroundCanvas.astro';
+import CustomCursor from '../components/CustomCursor.astro';
+import Navbar from '../components/Navbar.astro';
+import ProgressRail from '../components/ProgressRail.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Mayur Patel — Software Engineer & AI/ML",
+  description = "Portfolio of Mayur Patel — Computer Science & Engineering (AI/ML) student at VIT Chennai. Systems programming in Go & C, machine learning, and developer tools."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- SEO & Social Meta -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#040207" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@300;400;500;600;700&family=VT323&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Ambient & Sparkling 2D Canvas Background -->
+  <BackgroundCanvas />
+
+  <!-- Interactive Dual-Ring Magnetic Cursor & Toast Notification -->
+  <CustomCursor />
+
+  <!-- Floating Glass Capsule Navbar -->
+  <Navbar />
+
+  <!-- Vertical Scroll Indicator & Side Glyph -->
+  <ProgressRail />
+
+  <div class="page">
+    <slot />
+    <Footer />
+  </div>
+
+  <script>
+    import { SparklingParticles } from '../scripts/particles';
+    import { initUI } from '../scripts/ui';
+
+    // Initialize cosmic particles background & UI interaction listeners
+    if (typeof window !== 'undefined') {
+      new SparklingParticles('particles-canvas');
+      initUI();
+    }
+  </script>
+</body>
+</html>

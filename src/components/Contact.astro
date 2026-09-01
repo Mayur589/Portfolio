@@ -1,0 +1,37 @@
+---
+import { profile } from '../data/profile';
+---
+
+<section class="sec" id="contact" data-chapter="5">
+  <div class="contact-wrap">
+    <div class="eyebrow" style="justify-content: center;" data-rv>
+      <span class="dot"></span> Get In Touch
+    </div>
+    <h2 class="display contact-h2" data-rv>
+      Let's build<br /><em>together.</em>
+    </h2>
+    <p class="lead" data-rv>
+      Open to backend engineering, AI/ML, and software developer roles.
+    </p>
+    <a 
+      href={`mailto:${profile.email}`} 
+      class="contact-email" 
+      data-rv 
+      title="Click to copy email address"
+      aria-label={`Email ${profile.email}`}
+    >
+      {profile.email} 📋
+    </a>
+    <ul class="social-links" data-rv>
+      <li>
+        <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+      </li>
+      <li>
+        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </li>
+      <li>
+        <a href={`mailto:${profile.email}`}>Email</a>
+      </li>
+    </ul>
+  </div>
+</section>

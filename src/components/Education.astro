@@ -1,0 +1,35 @@
+---
+import { degrees, certifications } from '../data/education';
+---
+
+<section class="sec" id="education" data-chapter="4">
+  <div class="sec-head" data-rv>
+    <span class="k"><b>04</b> — Education &amp; Certification</span>
+    <span class="rule"></span>
+  </div>
+
+  <div class="edu-vertical">
+    {degrees.map((deg) => (
+      <div class="edu-card" data-rv>
+        <div class="edu-top-row">
+          <h3 class="edu-inst">{deg.institution}</h3>
+          <span class="edu-year">{deg.period}</span>
+        </div>
+        <p class="edu-deg">{deg.degree}</p>
+        <p class="edu-score">{deg.score}</p>
+        <p class="edu-details">{deg.details}</p>
+      </div>
+    ))}
+
+    {certifications.map((cert) => (
+      <div class="cert-card" data-rv>
+        <div class="edu-top-row">
+          <h3 class="cert-title">{cert.title}</h3>
+          <span class="edu-year">{cert.issuer}</span>
+        </div>
+        <p class="cert-issuer">{cert.type}</p>
+        <p class="edu-details">{cert.details}</p>
+      </div>
+    ))}
+  </div>
+</section>
