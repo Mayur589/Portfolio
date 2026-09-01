@@ -2,36 +2,34 @@
 import { profile } from '../data/profile';
 ---
 
-<section class="sec" id="contact" data-chapter="5">
-  <div class="contact-wrap">
-    <div class="eyebrow" style="justify-content: center;" data-rv>
-      <span class="dot"></span> Get In Touch
-    </div>
-    <h2 class="display contact-h2" data-rv>
-      Let's build<br /><em>together.</em>
+<section class="sec" id="contact">
+  <div class="contact-banner spotlight-card" data-rv>
+    <span class="section-tag" style="justify-content: center;">05 / Connect</span>
+    <h2 class="contact-h2">
+      Let's build something<br />exceptional together.
     </h2>
-    <p class="lead" data-rv>
-      Open to backend engineering, AI/ML, and software developer roles.
+    <p class="section-desc" style="text-align: center; max-width: 520px;">
+      Actively seeking backend engineering, distributed systems, and AI/ML software developer roles.
     </p>
-    <a 
-      href={`mailto:${profile.email}`} 
-      class="contact-email" 
-      data-rv 
+
+    <button 
+      class="contact-email-btn" 
+      data-copy-email 
       title="Click to copy email address"
-      aria-label={`Email ${profile.email}`}
+      aria-label={`Copy email ${profile.email}`}
     >
-      {profile.email} 📋
-    </a>
-    <ul class="social-links" data-rv>
-      <li>
-        <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-      </li>
-      <li>
-        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </li>
-      <li>
-        <a href={`mailto:${profile.email}`}>Email</a>
-      </li>
-    </ul>
+      <span>{profile.email}</span>
+      <span style="opacity: 0.7;">📋</span>
+    </button>
+
+    <div class="hero-socials" style="margin-top: 8px;">
+      <a href={profile.github} target="_blank" rel="noopener noreferrer" class="hero-social-link">
+        GitHub ↗
+      </a>
+      <span style="color: var(--border-medium);">·</span>
+      <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="hero-social-link">
+        LinkedIn ↗
+      </a>
+    </div>
   </div>
 </section>

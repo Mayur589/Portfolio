@@ -3,7 +3,6 @@ import '../styles/global.css';
 import BackgroundCanvas from '../components/BackgroundCanvas.astro';
 import CustomCursor from '../components/CustomCursor.astro';
 import Navbar from '../components/Navbar.astro';
-import ProgressRail from '../components/ProgressRail.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -29,18 +28,18 @@ const {
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#09090b" />
+  <meta name="theme-color" content="#08080a" />
 
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
 </head>
 <body>
-  <!-- Ambient & Subtle Starlight Canvas Background -->
+  <!-- Ambient Grid & Subtle Starlight Canvas Background -->
   <BackgroundCanvas />
 
   <!-- Minimalist Dual-Ring Magnetic Cursor & Toast Notification -->
@@ -49,13 +48,10 @@ const {
   <!-- Floating Glass Capsule Navbar -->
   <Navbar />
 
-  <!-- Vertical Scroll Indicator & Side Glyph -->
-  <ProgressRail />
-
-  <div class="page">
+  <main class="page-wrapper">
     <slot />
     <Footer />
-  </div>
+  </main>
 
   <script>
     import { SparklingParticles } from '../scripts/particles';

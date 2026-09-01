@@ -2,17 +2,20 @@
 import { projects, projectFilters } from '../data/projects';
 ---
 
-<section class="sec" id="projects" data-chapter="2">
-  <div class="sec-head" data-rv>
-    <span class="k"><b>02</b> — Featured Projects</span>
-    <span class="rule"></span>
+<section class="sec" id="projects">
+  <div class="section-header" data-rv>
+    <span class="section-tag">01 / Portfolio Showcase</span>
+    <h2 class="section-title">Featured Engineering Projects</h2>
+    <p class="section-desc">
+      Asymmetric showcase of systems tools, behavioral biometric models, real-time distributed applications, and simulations.
+    </p>
   </div>
 
-  <!-- UI Kit Interactive Category Filter Tabs -->
-  <div class="filter-tabs" data-rv>
+  <!-- Interactive Project Filter Tabs -->
+  <div class="project-filters" data-rv>
     {projectFilters.map((filter, idx) => (
       <button 
-        class={`filter-tab ${idx === 0 ? 'active' : ''}`} 
+        class={`filter-btn ${idx === 0 ? 'active' : ''}`} 
         data-filter={filter.value}
         aria-label={`Filter by ${filter.label}`}
       >
@@ -21,37 +24,42 @@ import { projects, projectFilters } from '../data/projects';
     ))}
   </div>
 
-  <div class="cards-grid">
+  <!-- Asymmetric Bento Grid Showcase -->
+  <div class="bento-grid">
     {projects.map((project) => (
-      <article class="card" data-category={project.category} data-rv>
+      <article 
+        class="project-card spotlight-card" 
+        data-id={project.id}
+        data-category={project.category} 
+        data-rv
+      >
         <div>
-          <div class="card-top">
-            <span class="card-num">{project.num} / {project.badge}</span>
-            <span class="card-biome">{project.subtitle}</span>
+          <div class="project-card-header">
+            <span class="project-index">{project.num} // {project.subtitle}</span>
+            <span class="project-badge">{project.badge}</span>
           </div>
-          <h3 class="card-title">{project.title}</h3>
-          <p class="card-desc">
-            {project.description}
-          </p>
-          <ul class="card-bullets">
+          <h3 class="project-title">{project.title}</h3>
+          <p class="project-desc">{project.description}</p>
+          <ul class="project-bullets-list">
             {project.bullets.map((bullet) => (
               <li>{bullet}</li>
             ))}
           </ul>
         </div>
-        <div class="card-foot">
-          <div class="card-tags">
+
+        <div class="project-card-footer">
+          <div class="project-tags-group">
             {project.tags.map((tag) => (
-              <span class="card-tag">{tag}</span>
+              <span class="project-tag">{tag}</span>
             ))}
           </div>
           <a 
             href={project.githubUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="card-link" 
+            class="project-repo-link" 
             title="View Source on GitHub"
-            aria-label={`View source code for ${project.title}`}
+            aria-label={`View GitHub repository for ${project.title}`}
           >
             ↗
           </a>

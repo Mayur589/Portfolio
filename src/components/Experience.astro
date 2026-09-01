@@ -2,28 +2,32 @@
 import { experiences } from '../data/experience';
 ---
 
-<section class="sec" id="experience" data-chapter="1">
-  <div class="sec-head" data-rv>
-    <span class="k"><b>01</b> — Work Experience</span>
-    <span class="rule"></span>
+<section class="sec" id="experience">
+  <div class="section-header" data-rv>
+    <span class="section-tag">02 / Career History</span>
+    <h2 class="section-title">Work Experience</h2>
+    <p class="section-desc">
+      Engineering internships focused on low-level C hardware control, official device SDK integration, and scalable REST backends.
+    </p>
   </div>
 
-  <div class="exp-grid">
-    <div class="exp-list">
-      {experiences.map((exp) => (
-        <div class="exp-card" data-rv>
-          <div class="exp-header">
-            <h3 class="exp-role">{exp.role}</h3>
-            <span class="exp-period">{exp.period}</span>
+  <div class="timeline">
+    {experiences.map((exp) => (
+      <div class="timeline-item" data-rv>
+        <div class="timeline-dot"></div>
+        <div class="exp-bento spotlight-card">
+          <div class="exp-top">
+            <h3 class="exp-role-title">{exp.role}</h3>
+            <span class="exp-time-badge">{exp.period}</span>
           </div>
-          <p class="exp-company">{exp.company} · {exp.location}</p>
-          <ul class="exp-bullets">
+          <p class="exp-org">{exp.company} · {exp.location}</p>
+          <ul class="exp-bullets-list">
             {exp.bullets.map((bullet) => (
               <li>{bullet}</li>
             ))}
           </ul>
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
 </section>

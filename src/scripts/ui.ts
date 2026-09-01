@@ -1,90 +1,68 @@
 /* =============================================================
-   UI INTERACTIONS: CURSOR, SCROLL SPY, TABS & COPY TOAST
+   UI INTERACTIONS: MOUSE SPOTLIGHT, SCROLL SPY, TABS & COPY
    ============================================================= */
 
 export function initUI(): void {
   if (typeof document === 'undefined') return;
 
-  // ─── 1. Custom Dual-Ring Cursor ────────────────────────────
-  const cursor = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursor-ring');
-  let cx = 0, cy = 0, rx = 0, ry = 0;
-
+  // ─── 1. Mouse Spotlight Tracker on Bento Cards ─────────────
+  const spotlightCards = document.querySelectorAll<HTMLElement>('.spotlight-card');
+  
   window.addEventListener('mousemove', (e: MouseEvent) => {
-    cx = e.clientX;
-    cy = e.clientY;
-    if (cursor) {
-      cursor.style.left = cx + 'px';
-      cursor.style.top = cy + 'px';
-    }
+    spotlightCards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
   });
 
-  (function animCursor() {
-    if (cursorRing) {
-      rx += (cx - rx) * 0.14;
-      ry += (cy - ry) * 0.14;
-      cursorRing.style.left = rx + 'px';
-      cursorRing.style.top = ry + 'px';
-    }
-    requestAnimationFrame(animCursor);
-  })();
+  // ─── 2. Scroll Spy & Sticky Navbar ─────────────────────────
+  const nav = document.getElementById('nav');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+  const sections = document.querySelectorAll<HTMLElement>('section[id]');
 
-  // ─── 2. Scroll Progress & Sticky Navbar ────────────────────
   function handleScroll(): void {
-    const nav = document.getElementById('nav');
     if (nav) {
-      if (window.scrollY > 40) nav.classList.add('stuck');
+      if (window.scrollY > 30) nav.classList.add('stuck');
       else nav.classList.remove('stuck');
     }
 
-    const sections = document.querySelectorAll<HTMLElement>('.sec');
-    const railBtns = document.querySelectorAll<HTMLElement>('.rail button');
-    let activeIdx = 0;
-    sections.forEach((sec, idx) => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top <= window.innerHeight * 0.45) activeIdx = idx;
+    let currentSection = '';
+    const scrollPos = window.scrollY + 200;
+
+    sections.forEach((sec) => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentSection = sec.getAttribute('id') || '';
+      }
     });
 
-    railBtns.forEach((btn, idx) => {
-      if (idx === activeIdx) btn.classList.add('on');
-      else btn.classList.remove('on');
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href === `#${currentSection}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     });
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // ─── 3. Navigation Clicks ──────────────────────────────────
-  document.querySelectorAll<HTMLElement>('[data-dest]').forEach((el) => {
-    el.addEventListener('click', () => {
-      const targetId = el.getAttribute('data-dest');
-      if (targetId) {
-        const target = document.querySelector(targetId);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
+  // ─── 3. Interactive Project Category Filters ───────────────
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
 
-  document.querySelectorAll<HTMLElement>('.rail button').forEach((btn) => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      if (targetId) {
-        const target = document.querySelector(targetId);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
 
-  // ─── 4. Interactive Project Filter Tabs (UI Kit) ───────────
-  const filterTabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
-  const projectCards = document.querySelectorAll<HTMLElement>('.cards-grid .card');
-
-  filterTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      filterTabs.forEach((t) => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const filter = tab.getAttribute('data-filter');
+      const filter = btn.getAttribute('data-filter');
 
       projectCards.forEach((card) => {
         const category = card.getAttribute('data-category') || '';
@@ -97,30 +75,33 @@ export function initUI(): void {
     });
   });
 
-  // ─── 5. One-Click Copy-to-Clipboard Email ──────────────────
-  const emailLink = document.querySelector<HTMLElement>('.contact-email');
+  // ─── 4. One-Click Copy-to-Clipboard Email ──────────────────
+  const emailButtons = document.querySelectorAll<HTMLElement>('[data-copy-email]');
   const toast = document.getElementById('copy-toast');
 
-  if (emailLink && toast) {
-    emailLink.addEventListener('click', (e) => {
+  emailButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
       const email = 'mayurhpatel05@gmail.com';
       navigator.clipboard.writeText(email).then(() => {
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2500);
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 2500);
+        }
       }).catch(() => {
-        // Fallback
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2500);
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 2500);
+        }
       });
     });
-  }
+  });
 
-  // ─── 6. Scroll Reveal Observer ─────────────────────────────
+  // ─── 5. Intersection Observer for Smooth Section Reveals ───
   const rvObserver = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {

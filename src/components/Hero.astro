@@ -2,79 +2,76 @@
 import { profile } from '../data/profile';
 ---
 
-<section class="hero sec" id="hero" data-chapter="0">
-  <div class="hero-top">
-    <!-- Live Status Badge -->
-    <div class="status-badge" data-rv>
-      <span class="status-dot"></span>
-      <span>Available for New Opportunities</span>
+<section class="hero-sec" id="hero">
+  <!-- Left Column: Master Introduction Bento Card -->
+  <div class="hero-main-card spotlight-card" data-rv>
+    <div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Available for Software &amp; AI Roles</span>
+      </div>
+
+      <p class="hero-name">{profile.name} // PORTFOLIO '26</p>
+
+      <h1 class="hero-title">
+        Engineering robust systems with precision &amp; clarity.
+      </h1>
+
+      <p class="hero-lead">
+        Computer Science &amp; Engineering student at <strong>VIT Chennai</strong>. Specializing in high-throughput <strong>Go</strong> backends, low-level <strong>C/C++</strong> hardware control, and <strong>PyTorch</strong> deep learning architectures.
+      </p>
     </div>
 
-    <h1 class="display h-hero" data-rv>
-      <span class="mask-line"><span>{profile.headlineLine1}</span></span>
-      <span class="mask-line"><span>with clarity &amp; <em>precision.</em></span></span>
-    </h1>
-
-    <p class="lead hero-sub" data-rv>
-      {profile.lead}
-    </p>
-
-    <!-- Modern Action CTAs -->
-    <div class="hero-actions" data-rv>
+    <div class="hero-actions">
       <a href="#projects" class="btn-primary">Explore Projects ↓</a>
       <a href="#contact" class="btn-secondary">Get in touch ↗</a>
-    </div>
-
-    <!-- UI Kit Hero Bento Micro-Widget -->
-    <div class="hero-widget" data-rv>
-      <div class="widget-row">
-        <span class="widget-label">Status</span>
-        <span class="widget-val">{profile.status}</span>
-      </div>
-      <div class="widget-row">
-        <span class="widget-label">Core Focus</span>
-        <span class="widget-val">{profile.coreFocus}</span>
-      </div>
-      <div class="widget-row">
-        <span class="widget-label">Location</span>
-        <span class="widget-val">{profile.location}</span>
-      </div>
+      <button class="btn-secondary" data-copy-email title="Copy email to clipboard">
+        Copy Email 📋
+      </button>
     </div>
   </div>
 
-  <div class="hero-foot">
-    <div class="hero-cue" data-rv>
-      <span>Scroll to explore</span>
-      <span class="track"><i></i></span>
+  <!-- Right Column: Studio Telemetry Deck -->
+  <div class="hero-telemetry-deck" data-rv>
+    <!-- Card 1: Core Specialization -->
+    <div class="telemetry-card spotlight-card">
+      <div class="telemetry-header">
+        <span class="telemetry-label">Specialization &amp; Stack</span>
+        <span class="telemetry-chip" style="color: #ffffff; background: rgba(255,255,255,0.08);">Core</span>
+      </div>
+      <div class="telemetry-chips">
+        <span class="telemetry-chip">Go Systems</span>
+        <span class="telemetry-chip">PyTorch &amp; LSTM</span>
+        <span class="telemetry-chip">Low-Level C</span>
+        <span class="telemetry-chip">Distributed Tools</span>
+        <span class="telemetry-chip">REST &amp; WebSockets</span>
+      </div>
     </div>
-    <div class="chapters" id="chips">
-      <div class="chip" data-dest="#experience" data-rv>
-        <span class="num">01</span>
-        <div class="tx">
-          <b>Experience</b>
-          <p>Internships at DRDO &amp; Aspirenet.</p>
-        </div>
+
+    <!-- Card 2: Location & Mobility -->
+    <div class="telemetry-card spotlight-card">
+      <div class="telemetry-header">
+        <span class="telemetry-label">Location &amp; Mobility</span>
+        <span class="telemetry-label" style="color: #34d399;">● Online</span>
       </div>
-      <div class="chip" data-dest="#projects" data-rv>
-        <span class="num">02</span>
-        <div class="tx">
-          <b>Projects</b>
-          <p>Mod Manager, Protocol VII &amp; tools.</p>
-        </div>
+      <p class="telemetry-val">
+        Chennai, India · Open to Remote &amp; Global Relocation
+      </p>
+    </div>
+
+    <!-- Card 3: Metrics Grid -->
+    <div class="hero-metrics-grid">
+      <div class="metric-card spotlight-card">
+        <span class="metric-num">8.84</span>
+        <span class="metric-label">CGPA / 10</span>
       </div>
-      <div class="chip" data-dest="#skills" data-rv>
-        <span class="num">03</span>
-        <div class="tx">
-          <b>Skills</b>
-          <p>Go, Python, C/C++, PyTorch &amp; DevOps.</p>
-        </div>
+      <div class="metric-card spotlight-card">
+        <span class="metric-num">06+</span>
+        <span class="metric-label">Projects</span>
       </div>
-      <div class="chip" data-dest="#education" data-rv>
-        <span class="num">04</span>
-        <div class="tx">
-          <b>Education</b>
-          <p>VIT Chennai &amp; IBM DevOps Certificate.</p>
-        </div>
+      <div class="metric-card spotlight-card">
+        <span class="metric-num">02</span>
+        <span class="metric-label">Internships</span>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 /* =============================================================
-   BASE RESET, LAYERS & MONOCHROME CURSOR
+   BASE RESET, BACKGROUND GRID BOXES & SPOTLIGHT CARDS
    ============================================================= */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -9,21 +9,22 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--ink);
-  color: var(--bone);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
 }
 
 body {
-  background: var(--ink);
-  color: var(--bone);
+  background-color: var(--bg-app);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 15px;
   line-height: 1.65;
   overflow-x: hidden;
-  cursor: none;
+  cursor: default;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 ::selection {
@@ -34,6 +35,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 button {
@@ -44,147 +46,123 @@ button {
   cursor: pointer;
 }
 
-/* ─── Ambient Starlight Canvas Background Layer ─────────────── */
+/* ─── Background Developer Grid Boxes & Ambient Lighting ────── */
+.grid-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, #000 55%, transparent 100%);
+}
+
 #particles-canvas {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
   display: block;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Subtle Ambient Lighting */
-#ambient-aura {
-  position: fixed;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(800px, 90vw);
-  height: 400px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 70%);
-  filter: blur(80px);
   z-index: 1;
   pointer-events: none;
 }
 
-#vignette {
+#ambient-glow {
   position: fixed;
-  inset: 0;
-  z-index: 2;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 100vw);
+  height: 550px;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 75%);
+  filter: blur(90px);
+  z-index: 1;
   pointer-events: none;
-  background: radial-gradient(120% 100% at 50% 50%, transparent 40%, rgba(9, 9, 11, 0.85) 100%);
 }
 
-#grain {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-}
-
-.page {
+.page-wrapper {
   position: relative;
   z-index: 10;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
 }
 
-/* ─── Minimalist Modern Custom Cursor ───────────────────────── */
-#cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-white);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform .06s var(--ease-out);
+/* ─── Section Headings ──────────────────────────────────────── */
+.section-header {
+  margin-bottom: clamp(24px, 3.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-#cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9998;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform .2s var(--ease-out), width .2s var(--ease-out), height .2s var(--ease-out), border-color .3s, opacity .2s;
-  opacity: 0.6;
-}
-
-body:has(a:hover) #cursor-ring,
-body:has(button:hover) #cursor-ring,
-body:has(.card:hover) #cursor-ring,
-body:has(.chip:hover) #cursor-ring,
-body:has(.btn-primary:hover) #cursor-ring,
-body:has(.btn-secondary:hover) #cursor-ring {
-  width: 50px;
-  height: 50px;
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
-  opacity: 0.9;
-}
-
-@media (hover: none) {
-  #cursor, #cursor-ring { display: none; }
-  body { cursor: auto; }
-}
-
-/* ─── Modern Typography Utilities ───────────────────────────── */
-.eyebrow {
-  font-family: var(--font-ui);
+.section-tag {
+  font-family: var(--font-mono);
   font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-dim);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.eyebrow .dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent-white);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
+.section-tag::before {
+  content: '//';
+  color: #ffffff;
 }
 
-.display {
+.section-title {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.12;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 700;
   letter-spacing: -0.025em;
-  color: var(--bone);
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
-.h-hero {
-  font-size: clamp(36px, 5.8vw, 72px);
-}
-
-.h-sec {
-  font-size: clamp(26px, 3.4vw, 42px);
-}
-
-.lead {
-  font-size: clamp(15px, 1.15vw, 18px);
-  line-height: 1.7;
-  color: var(--bone-dim);
-}
-
-.body {
+.section-desc {
   font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--muted);
+  color: var(--text-muted);
+  max-width: 620px;
+}
+
+/* ─── Universal Spotlight Bento Card ────────────────────────── */
+.spotlight-card {
+  position: relative;
+  background: var(--bg-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease-spring), transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-spring);
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.08),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(255, 255, 255, 0.04);
 }

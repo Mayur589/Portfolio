@@ -2,33 +2,38 @@
 import { degrees, certifications } from '../data/education';
 ---
 
-<section class="sec" id="education" data-chapter="4">
-  <div class="sec-head" data-rv>
-    <span class="k"><b>04</b> — Education &amp; Certification</span>
-    <span class="rule"></span>
+<section class="sec" id="education">
+  <div class="section-header" data-rv>
+    <span class="section-tag">04 / Credentials</span>
+    <h2 class="section-title">Education &amp; Certification</h2>
+    <p class="section-desc">
+      Academic background in Computer Science &amp; Engineering alongside verified professional certifications.
+    </p>
   </div>
 
-  <div class="edu-vertical">
+  <div class="edu-grid">
     {degrees.map((deg) => (
-      <div class="edu-card" data-rv>
-        <div class="edu-top-row">
-          <h3 class="edu-inst">{deg.institution}</h3>
-          <span class="edu-year">{deg.period}</span>
+      <div class="edu-bento-card spotlight-card" data-rv>
+        <div class="edu-header-row">
+          <h3 class="edu-inst-name">{deg.institution}</h3>
+          <span class="edu-period-badge">{deg.period}</span>
         </div>
-        <p class="edu-deg">{deg.degree}</p>
-        <p class="edu-score">{deg.score}</p>
-        <p class="edu-details">{deg.details}</p>
+        <p class="edu-degree-title">{deg.degree}</p>
+        <div class="edu-score-badge">
+          Current CGPA: <strong>8.84 / 10</strong>
+        </div>
+        <p class="edu-desc-text">{deg.details}</p>
       </div>
     ))}
 
     {certifications.map((cert) => (
-      <div class="cert-card" data-rv>
-        <div class="edu-top-row">
-          <h3 class="cert-title">{cert.title}</h3>
-          <span class="edu-year">{cert.issuer}</span>
+      <div class="edu-bento-card spotlight-card" data-rv>
+        <div class="edu-header-row">
+          <h3 class="edu-inst-name">{cert.title}</h3>
+          <span class="edu-period-badge">{cert.issuer}</span>
         </div>
-        <p class="cert-issuer">{cert.type}</p>
-        <p class="edu-details">{cert.details}</p>
+        <p class="edu-degree-title">{cert.type}</p>
+        <p class="edu-desc-text">{cert.details}</p>
       </div>
     ))}
   </div>

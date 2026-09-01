@@ -2,21 +2,22 @@
 import { skillCategories } from '../data/skills';
 ---
 
-<section class="sec" id="skills" data-chapter="3">
-  <div class="sec-head" data-rv>
-    <span class="k"><b>03</b> — Technical Skills</span>
-    <span class="rule"></span>
+<section class="sec" id="skills">
+  <div class="section-header" data-rv>
+    <span class="section-tag">03 / Core Competencies</span>
+    <h2 class="section-title">Technical Skills &amp; Stack</h2>
+    <p class="section-desc">
+      Core programming languages, machine learning frameworks, distributed tools, and developer workflows.
+    </p>
   </div>
 
-  <div class="skills-vertical">
-    {skillCategories.map((cat) => (
-      <div class="skill-row" data-rv>
-        <div class="skill-header">
-          <span class="skill-category">{cat.title}</span>
-        </div>
-        <div class="skill-pills">
-          {cat.skills.map((skill) => (
-            <span class="skill-pill">{skill}</span>
+  <div class="skills-grid">
+    {skillCategories.map((category) => (
+      <div class="skill-bento-card spotlight-card" data-rv>
+        <h3 class="skill-bento-title">{category.title}</h3>
+        <div class="skill-pills-wrap">
+          {category.skills.map((skill) => (
+            <span class="skill-pill-item">{skill}</span>
           ))}
         </div>
       </div>
